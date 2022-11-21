@@ -60,7 +60,7 @@ app.get("/api", (req, res) => {
         } catch (err) {
             res.json({status: 'success', message: err})
         }
-        res.json({status: 'success', message: 'Data Berhasil Dikirim', tes: text, phone2: phone})
+        res.json({status: 'success', message: 'Data Berhasil Dikirim', tes: text})
     } else {
         res.json({status: 'error', message: 'Data Tidak Berhasil Dikirim, Mohon cek kembali'})
     }

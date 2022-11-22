@@ -2,7 +2,12 @@ const express = require('express')
 const app = express();
 const port = 3000;
 const qrcode = require('qrcode-terminal');
+const cors = require('cors');
 
+app.use(cors({
+    'origin': '*',
+    'methods': 'GET,HEAD,PUT,PATCH,POST,DELETE',
+}));
 
 const {Client, LocalAuth} = require('whatsapp-web.js');
 
@@ -60,7 +65,7 @@ app.get("/api", (req, res) => {
         } catch (err) {
             res.json({status: 'success', message: err})
         }
-        res.json({status: 'success', message: 'Data Berhasil Dikirim', tes: text})
+        res.json({status: 'success', message: 'Data Berhasil Dikirim'})
     } else {
         res.json({status: 'error', message: 'Data Tidak Berhasil Dikirim, Mohon cek kembali'})
     }
